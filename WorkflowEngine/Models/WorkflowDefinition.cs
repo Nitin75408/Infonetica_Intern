@@ -1,28 +1,32 @@
 namespace WorkflowEngine.Models
 {
     /// <summary>
-    /// Represents a workflow definition (blueprint).
+    /// Represents a workflow definition, which is a blueprint for a state machine.
+    /// Contains the set of states and actions that define the workflow's behavior.
     /// </summary>
+    /// <remarks>
+    /// Each workflow must have a unique ID and exactly one initial state.
+    /// </remarks>
     public class WorkflowDefinition
     {
         /// <summary>
-        /// Unique identifier for the workflow definition.
+        /// Gets or sets the unique identifier for the workflow definition.
         /// </summary>
-        public string Id { get; set; }
+        public string Id { get; set; } = string.Empty;
 
         /// <summary>
-        /// Human-readable name for the workflow.
+        /// Gets or sets the human-readable name for the workflow.
         /// </summary>
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         /// <summary>
-        /// Collection of states in this workflow.
+        /// Gets or sets the collection of states in this workflow.
         /// </summary>
-        public List<State> States { get; set; }
+        public List<State> States { get; set; } = new List<State>();
 
         /// <summary>
-        /// Collection of actions (transitions) in this workflow.
+        /// Gets or sets the collection of actions (transitions) in this workflow.
         /// </summary>
-        public List<ActionTransition> Actions { get; set; }
+        public List<ActionTransition> Actions { get; set; } = new List<ActionTransition>();
     }
 } 
